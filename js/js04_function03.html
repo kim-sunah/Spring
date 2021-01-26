@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+
+        function fun01(){
+            alert("명시적 함수");
+        };
+        
+        var fun02=function(){
+            alert("익명함수");
+        };
+
+        function fun03(){
+            literalPrn(function(msg){
+                alert(msg +"!!");
+            });
+        };
+        //변수가 들어오는 자리에 함수도 들어갈 수 있다.
+
+        function closuerTest(val){
+            var msg="재밌다.";
+            function addVal(){
+                alert(val+msg);
+            };
+            return addVal;
+        }
+
+        function amEdu(val){
+            closuerTest(val)();
+        };
+
+        var pmEdu=function(val){
+            closuerTest(val)();
+        }  
+    </script>
+
+
+</head>
+<body>
+    
+    <h1>함수</h1>
+
+    <h3>함수의 종류</h3>
+
+    <p onclick="fun01();">1.명시적 함수</p>
+    <p onclick="fun02();">2.익명함수</p>
+    <p onclick="fun02();">3.함수 리터럴</p>
+
+    <h3>클로저</h3>
+
+    <label for="am">오전강의</lavel>
+    <input type="text" id="am"/>
+    <input type="button" value="클릭" onclick="amEdu(am.value);"/>
+    <label for="pm">오후강의</label>
+    <input type="text" id="pm"/>
+    <input type="button"value="클릭" onclick="pmEdu(am.value);"/>
+
+</body>
+</html>

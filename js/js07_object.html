@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+
+        function qClass(){
+            this.name="kh정보교육원";
+            var classname="빅대에터 전문가 과정";
+            this.getClassname=function(){
+                return classname;
+            }
+        }
+
+        var qClass2={
+            name:"kh",
+            print:function(){
+                alert(qClass2.name+"빅데이터 전문가 과정-오후반");
+            }
+        }
+        qClass.prototype.printName=function(){
+            alert(this.name+" "+ this.getClassname()+"끝났다");
+        }
+        function objTect(){
+            var cls=new qClass();
+            console.log(cls.name);
+            console.log(cls.classname);
+            console.log(cls.getClassname);
+
+            console.log(qClass2.name);
+            qClass2.print();
+
+            cls.printName();
+        }
+    </script>
+
+</head>
+<body>
+    <pre>
+        객체구성
+        - 메서드 : 기능정의
+        - 속성 : 객체 내부 데이터
+        - this : 객체 내부의 메서드나 속성을 정의할 때 사용
+        - 프로토타입 : 객체의 확장
+    </pre>
+
+    <button onclick="objTect();">객체</button>
+
+
+
+</body>
+</html>

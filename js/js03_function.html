@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+        function alertTest(){
+            alert("내용(단순대화창)");
+        };
+
+        function confirmTest(){
+            if(confirm("배경을 파란색으로 바꿀까요?")){
+                document.body.style.backgroundColor="skyblue";
+            }else{
+                document.body.style.backgroundColor="";
+            }
+        };
+        
+        function promptTest(){
+            var txt=prompt("좋아하는 과목을 작성해주세요. \n [1:자바    2.DB    3.:HTML/CSS");
+            //질문에 대한 답변을 받을 수 있다.
+            switch(txt){
+                case "1" : 
+            }
+        }
+        console.log(window.window.window.window.window);
+        console.log(this.window);
+        //this가 윈도우 객체이기 때문에 윈도우 객체인 alert함수를 호출할 수 있다..?
+        
+    </script>
+
+</head>
+<body>
+    
+    <h1>window객체에서 제공하는 대화형 함수</h1>
+
+    <small>whdfbdpsms<string>alert(),confirm(),prompt()</string>가 있다.</small>
+
+    <p>alert(): <button onclick="alertTest();">클릭</button></p>
+    <p>confirm(): <button onclick="confirmTest();">클릭</button></p>
+    <p>prompt(): <button onclick="promptTest();">클릭</button></p>
+
+</body>
+</html>

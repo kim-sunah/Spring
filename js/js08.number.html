@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <pre>
+        *자바 스크립트에서 기본적으로 제공하고 있는 객체 중 하나를
+        1.Number
+            -정수, 실수를 다루는 객체
+            <button onclick="numberObj();">Number객체</button>
+            -속성 : Nan(Not a Number)
+                infinity(범위를 벗어난 숫자)
+
+            -기타예외속성
+                undefinde(갑이 정의되지 않았다.)
+                null(변수는 선언되어 있지만, 값이 비어있다)
+
+            <button onclick="inNum();">숫자 판별</button>
+    </pre>
+    <p id="inputText"></p>
+
+</body>
+    <script type="text/javascript">
+        function numberObj(){
+            var out=document.getElementById("inputText");
+
+            var num01=new Number(7);
+            var num02=7;
+
+            out.innerHTML="NaN : "+parseInt("a")+"<br/>";
+            //문자를 숫자로 바꿔주는애
+
+            out.innerHTML += "infinity : "+(Infinity/100)+"<br/>";
+            //인피니티라는 객체
+            out.innerHTML += "infinity : "+(Number.MAX_VALUE+0.00001e308)+"<br/>";
+
+            var number01 =333.34567;
+            out.innerHTML += "tofixed:" +number01.toFixed(2)+"<br/>";
+            
+            var number02 =123;
+            out.innerHTML += "toString : "+number02.toString(16);
+        }
+        function inNum(){
+            var out= document.getElementById("inputText");
+            
+            var num = prompt("숫자만 입력하세요");
+            if(isNaN(num)){
+                out.innerHTML="숫자가 아닙니다.";
+            }else{
+                out.innerHTML="숫자가 맞습니다.";
+            }
+        }
+    
+    </script>
+
+</html>

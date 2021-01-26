@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+    var num=0;
+
+        function prevGarllery(){
+            num--;
+            if(num<0){
+                num=5;
+            }
+            document.getElementById("gellery").src="img/cat"+num+".png.jfif";
+            
+            return false;
+        }
+
+        function nextGarllery(){
+            num++;
+            if(num>5){
+                num=0;
+            }
+            document.getElementById("gellery").src="img/cat"+num+".png.jfif";
+
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="gellerywrap">
+        <p>
+            <a href="http://www.naver.com" onclick="return prevGarllery();">
+                <img src="img/R.png" alt="R" style="width: 50px; height:50px;">
+            </a>
+
+            <img src="img/cat3.png.jfif" alt="img" id="gellery">
+
+            <a onclick="nextGarllery();">
+                <img src="img/L.png" alt="L" style="width: 50px; height:50px;">
+            </a>
+        </p>
+    </div>
+    
+</body>
+</html>
