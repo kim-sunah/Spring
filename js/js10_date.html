@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>오늘날짜 구하기</h1>
+    <span id="today"></span><br/><br/>
+    <button>오늘날짜</button><br/><br/>
+    <button>오늘날짜(표현)</button>
+
+    <h1>특정 날짜 구하기</h1>
+    <span id="sepcific"></span><br/><br/>
+    <button>특정날짜</button>
+
+    <h1>경과날짜 구하기</h1>
+    <label>지정날짜</label>
+    <input type="date" size="50" id="dates"/><br/><br/>
+    <label>경과일</label>
+    <input type="number" size="50" id="inputdate"/><br/><br/>
+    <label>경과 후 날짜</label>
+    <input type="text" readonly="readonly" id="result01"/><br/><br/>
+    <button>경과날짜</button>
+
+    <hr/>
+
+    <h2>D-day</h2>
+    <label>시작날짜</label>
+    <input type="date" size="50" id="start"/><br/><br/>
+    <label>종료날짜</label>
+    <input type="date" size="50" id="end"/><br/><br/>
+    <label>남은 일수</label>
+    <input type="text" readonly="readonly" id="result02"/><br/><br/>
+    <button>남은 일수 구하기</button>
+
+    <script type="text/javascript">
+        //window.onload=function(){}
+        //화면이 완셩된 후에 진행되는 이벤트      
+        onload=function(){
+            //클릭 이벤트가 발생하면 함수가 실행되도록 한다.
+            document.getElementsByTagName("button")[0].onclick=testDate01;
+            document.getElementsByTagName("button")[1].onclick=testDate02;
+            document.getElementsByTagName("button")[2].onclick=testDate03;
+            document.getElementsByTagName("button")[3].onclick=testDate04;
+            document.getElementsByTagName("button")[4].onclick=testDate05;
+            //클릭 이벤트 발생 후 함수 실행해야 하므로 괄호를 이름 뒤에 붙이지 않는다.
+        }  
+
+        function testDate01(){
+            var today=document.getElementById("today");
+            var date=new Date();
+            today.innerHTML=date.toDateString()+"<br/>";
+            today.innerHTML +=date.toLocaleDateString()+"<br/>";
+            today.innerHTML += date.toLocaleString()+"<br/>";
+            today.innerHTML += date.toLocaleTimeString();
+        }
+
+        function testDate02(){
+
+            var date=new Date();
+            var dayOfWeek=["일","월","화","수","목","금","토"];
+            var year=date.getFullYear();
+            //date.getYear
+            var month=date.getMonth()+1;
+            var day=date.getDate();
+            var week=date.getDay();
+
+            document.getElementById("today").innerHTML=year+"/"+month+"/"+day+" "+dayOfWeek[week] +"요일";
+
+
+        }
+        function testDate03(){
+            var year=2021;
+            var month=1;
+            var day=29;
+            var date=new Date(year,month-1,day);
+
+            document.getElementById("sepcific").innerHTML=date;
+        }
+
+        function testDate04(){
+
+            var dates=document.getElementById("dates").value;
+            var inputdate=document.getElementById("inputdate").value;
+            var date=new Date(dates);
+            date.setDate(date.getDate() +parseInt(inputdate));
+            document.getElementById("result01").value=date.toLocaleDateString();
+        }
+
+        function testDate05(){
+            
+            var dates02 =document.getElementById("start").value;
+            var inputdate02 = document.getElementById("end").value;
+
+            var nowDate=new Date(dates02);
+            var afterDate=new Date(inputdate02);
+
+            var result02=(afterDate.getTime()-nowDate.getTime())/(1000*60*60 *24);
+            document.getElementById("result02").value=result02;
+
+        }
+
+
+    </script>
+
+
+</body>
+</html>

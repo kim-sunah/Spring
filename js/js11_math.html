@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>랜덤숫자</h1>
+    숫자:
+    <input type="text" id="rnum" readonly/>
+    <input type="button" value="랜덤숫자" onclick="randomNumber();"/>
+
+    <h1>랜덤으로 배경색 변경</h1>
+    <input type="button" value="변경"onclick="randomBgColor();"/>
+
+    <h1>원 만들기</h1>
+    <input type="button" value="원" onclick="circleView();">
+    <br/><br/><br/>
+    <div id="circle"></div><br/><br/>
+
+    원의 넓이 : <span id="area"></span><br/><br/>
+    원의 둘레 : <span id= "len"></span><br/><br/>
+    <button onclick="circleArea();">원의 넓이</button>
+
+
+    <style type="text/css">
+        #circle{
+            border:1px solid skyblue;
+            display: none;
+        }
+    
+    </style>
+
+
+    <script type="text/javascript">
+
+//숫자 랜덤 만들기
+//원을 만들고
+//원둘레구하고
+//원 넓이를 구하세요
+        function randomNumber(){
+            var rnum=Math.floor(Math.random() *81+10);
+            document.getElementById("rnum").value=rnum;
+        }
+
+        function randomBgColor(){
+            var rnum=function(){
+                return Math.floor(Math.random()*256);
+            }
+            document.body.style.backgroundColor="rgb("+rnum()+","+ rnum()+","+rnum()+")";
+        }
+
+        function circleView(){
+            var rnum=Math.floor(Math.random()*200);
+            var circle=document.getElementById("circle");
+            console.log(rnum);
+
+            circle.style.width=rnum+"px";
+            circle.style.height=rnum+"px";
+            circle.style.borderRadius=Math.floor(rnum/2)+"px";
+
+            circle.style.display="block";
+        }
+/**
+        function circleArea(){
+            //넓이=r*r*3.14
+            //지름을 가져왔죠
+            var rr=document.getElementById("circle").style.width;
+            var rrnum=rr.replace('px');
+            var rr1=rr.replace(/[^0-9]/g,"");
+            //거기서 /2 를 해야하는데 px가 찍혀서 안되죠?
+            var r=rr1/2;
+
+            //circleView.rnum;
+            //그래서 지름이라도 넣어놨죠
+            console.log(rr);
+            console.log(rrnum);
+            console.log(rr1);
+
+
+            //len에 일단 지름을 넣었어요
+            var len=rr1*3.14;
+            var area=r+r*3.14;
+            //이걸 출력을 하고싶어요?
+            document.getElementById("area").innerText=area;
+            document.getElementById("len").innerText=len;
+        }
+**/
+
+        function circleArea(){
+
+            
+            var circleWidth=document.getElementById("circle").style.width;
+            console.log(circleWidth);
+            var r2 = circleWidth.substring(0, circleWidth.length - 2);
+            console.log(r2);
+            var r=Math.floor(r2/2);
+            //Math.floor=소숫점 버리기
+            var area=Math.floor(Math.PI*Math.pow(r,2));
+            var len=Math.floor(Math.PI*r2);
+            document.getElementById("area").innerHTML=area;
+            document.getElementById("len").innerHTML=len;
+        }
+
+
+    
+    
+    </script>
+
+
+</body>
+</html>

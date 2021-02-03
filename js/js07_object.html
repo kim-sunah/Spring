@@ -8,19 +8,26 @@
     <script type="text/javascript">
 
         function qClass(){
+            //생성자 함수
+            //외부에서 접근 가능
+            //this=인스턴스
             this.name="kh정보교육원";
+            //외부에서 접근 불가
             var classname="빅대에터 전문가 과정";
+           
             this.getClassname=function(){
                 return classname;
             }
         }
 
         var qClass2={
+            //객체 리터럴
             name:"kh",
             print:function(){
                 alert(qClass2.name+"빅데이터 전문가 과정-오후반");
             }
         }
+        //프로토타입
         qClass.prototype.printName=function(){
             alert(this.name+" "+ this.getClassname()+"끝났다");
         }
@@ -28,7 +35,7 @@
             var cls=new qClass();
             console.log(cls.name);
             console.log(cls.classname);
-            console.log(cls.getClassname);
+            console.log(cls.getClassname());
 
             console.log(qClass2.name);
             qClass2.print();

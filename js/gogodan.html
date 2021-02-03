@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>구구단</h1>
+    <button onclick="gogo()" >출력하기</button>
+
+    <a><input type="number" value="">단</a> 
+    
+    <br/>
+    <br/>
+    
+    <a id="dan"></a><br/>
+
+</body>
+
+<script type="text/javascript">
+
+    function gogo(){
+
+        var a=document.getElementsByTagName("input")[0].value;
+        var result="";
+        j=1;
+        while(j<10){
+            j++
+            i=1;
+            while(i<9){
+                i++;
+                result += j + "*"+ i + "=" + (j*i) + "<br/>"
+                
+            }
+
+        }
+        document.getElementById("dan").innerHTML=result;
+
+    }
+
+
+</script>
+</html>
